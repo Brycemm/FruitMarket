@@ -14,7 +14,7 @@ menu_options = {
 
 
 def print_menu():
-    print('Welcome,' + name + '. What fruit would you like to buy?')
+    print('Welcome,' + name + '. What fruit would you like to buy? ')
     for key in menu_options.keys():
         print(key, '--', menu_options[key])
 
@@ -23,9 +23,9 @@ while True:
 
     print_menu()
     fruit = input()
-    print('You bought 1'+ menu_options[int(fruit)])
+    print('You bought 1'+ menu_options[int(fruit)][:-2] + 'at' + menu_options[int(fruit)][-3:])
     cart.append(int(fruit))
-    answer = input('Would you like to buy another piece of fruit? y/n')
+    answer = input('Would you like to buy another piece of fruit? y/n ')
     if answer != 'y':
         break
 
@@ -36,12 +36,19 @@ for fruits in cart:
         apple += 1
     if fruits == 3:
         orange += 1
+    subtotal += fruits
 
 print('Order for ' + name + ':')
 print(str(grape) + ' Grape(s) at $1 apiece')
 print(str(apple) + ' Apple(s) at $2 apiece')
 print(str(orange) + ' Orange(s) at $3 apiece')
 
-subtotal += fruits
+total = subtotal * 1.05
+tax = .05 * subtotal
+print('Subtotal: $', subtotal)
+print('5% Tax: $', tax)
+print("Total: $", total)
 
-    #count how
+
+    #calculating subtotal and tax
+    #printing receipt
