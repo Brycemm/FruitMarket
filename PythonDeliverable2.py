@@ -1,3 +1,7 @@
+import numpy as np
+import statistics
+
+
 name = input("Welcome to the GC Fruit Market! What is your name?")
 cart = []
 total = 0
@@ -45,10 +49,11 @@ print(str(orange) + ' Orange(s) at $3 apiece')
 
 total = subtotal * 1.05
 tax = .05 * subtotal
-print('Subtotal: $', subtotal)
+print(f'Subtotal: ${sum(cart)}')
 print('5% Tax: $', tax)
 print("Total: $", total)
-
+print(f'Median Price: ${np.median(cart)}')
+print(f'Mode Price: ${statistics.mode(cart)}')
 
     #calculating subtotal and tax
     #printing receipt
